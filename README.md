@@ -34,7 +34,7 @@ This will automatically open http://localhost:9528
 npm run build:stage
 
 # build for production environment
-npm run build:npm
+npm run build:prod
 ```
 
 ## Advanced
