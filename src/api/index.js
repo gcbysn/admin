@@ -1,0 +1,5 @@
+export { default as tradmark } from './product/tradmark'
+export { default as attr } from './product/attr'
+export { default as sku } from './product/sku'
+export { default as spu } from './product/spu'
+// export  user from './user'
