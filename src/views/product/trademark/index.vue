@@ -5,6 +5,7 @@
       @click="dialogFormVisible = true"
       icon="el-icon-plus"
       class="btn"
+     v-has-permission="`Trademark.add`"
       >添加</el-button
     >
     <el-table border :data="tradmarkList" style="width: 100%">
@@ -17,10 +18,10 @@
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="{ row }">
-          <el-button type="warning" size="small" @click="updataTm(row)"
+          <el-button type="warning" size="small" @click="updataTm(row)"  v-has-permission="`Trademark.update`"
             >编辑</el-button
           >
-          <el-button type="danger" size="small" @click="deleteTm(row)"
+          <el-button type="danger" size="small" @click="deleteTm(row)" v-has-permission="`Trademark.remove`"
             >删除</el-button
           >
         </template>
@@ -67,7 +68,7 @@
 
 <script>
 export default {
-  name: "Tradmark",
+  name: "Trademark",
   data() {
     return {
       tradmarkList: [],

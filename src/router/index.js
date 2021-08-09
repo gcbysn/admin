@@ -56,42 +56,48 @@ export const constantRoutes = [
       }
     ]
   },
-  {
-    path: "/product",
-    component: Layout,
-    redirect: "/tradmark",
-    children: [
-      {
-        path: "tradmark",
-        name: "Tradmark",
-        component: () => import("@/views/product/tradmark"),
-        meta: { title: "品牌管理" }
-      },
-      {
-        path: "attr",
-        name: "Attr",
-        component: () => import("@/views/product/attr"),
-        meta: { title: "属性管理" }
-      },
-      {
-        path: "sku",
-        name: "Sku",
-        component: () => import("@/views/product/sku"),
-        meta: { title: "Sku管理" }
-      },
-      {
-        path: "spu",
-        name: "Spu",
-        component: () => import("@/views/product/spu"),
-        meta: { title: "Spu管理" }
-      }
-    ],
-    meta: { title: "商品管理", icon: "el-icon-s-shop" }
-  },
-
   // 404 page must be placed at the end !!!
-  { path: "*", redirect: "/404", hidden: true }
 ];
+
+export const asyncRoutes=[
+    {
+        path: "/product",
+        name:"Product",
+        component: Layout,
+        redirect: "/product/tradmark",
+        children: [
+          {
+            path: "tradmark",
+            name: "Trademark",
+            component: () => import("@/views/product/trademark"),
+            meta: { title: "品牌管理" }
+          },
+          {
+            path: "attr",
+            name: "Attr",
+            component: () => import("@/views/product/attr"),
+            meta: { title: "属性管理" }
+          },
+          {
+            path: "sku",
+            name: "Sku",
+            component: () => import("@/views/product/sku"),
+            meta: { title: "Sku管理" }
+          },
+          {
+            path: "spu",
+            name: "Spu",
+            component: () => import("@/views/product/spu"),
+            meta: { title: "Spu管理" }
+          }
+        ],
+        meta: { title: "商品管理", icon: "el-icon-s-shop" }
+      },
+]
+
+export const anyRoutes=[
+    { path: "*", redirect: "/404", hidden: true }
+]
 
 const createRouter = () =>
   new Router({
